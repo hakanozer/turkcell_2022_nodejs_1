@@ -5,6 +5,11 @@ import bodyParser from "body-parser";
 const app = express()
 const port = 8080
 
+import { userSave } from "./services/admin/userService";
+userSave("Zehra Bilsin", "zehra@mail.com", "12345").then(item => {
+    console.log(item);
+})
+
 // EJS config
 app.set( "views", path.join( __dirname, "views" ) );
 app.set('view engine', 'ejs');
