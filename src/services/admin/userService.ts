@@ -23,3 +23,8 @@ export const userLoginControl = async (email: string, password: string) => {
     await db
     return await UserModel.findOne({email, password})
 }
+
+export const userFindId = async (id: string) => {
+    await db
+    return await UserModel.findById(id)
+}

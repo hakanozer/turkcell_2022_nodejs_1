@@ -1,11 +1,15 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
+import cookieParser from 'cookie-parser'
 import session from 'express-session'
+import { IUserSchema, UserModel } from "./models/UserModel";
 
 const app = express()
 const port = 8080
 
+// cookie config
+app.use(cookieParser())
 
 // session data type
 declare module 'express-session' {
@@ -44,12 +48,26 @@ app.use(bodyParser.json())
 
 
 // global filter
-app.use(( req, res, next ) => {
+app.use( async ( req, res, next ) => {
     const url = req.url    
     // admin Control
-    if ( url === '/admin' || url === '/admin/login'  ) {
+    if ( url === '/admin' || url === '/admin/login' ) {
         next()
     }else {
+        // cookie control
+        if ( req.cookies.admin ) {
+            const id = req.cookies.admin as string
+             await userFindId(id).then(user => {
+                if (user) {
+                    req.session.item = {
+                        id: user.id!,
+                        name: user.name!,
+                        email: user.email!,
+                        password: user.password!
+                    }
+                }
+            })
+        }
         if ( !req.session.item ) {
             res.redirect('../admin')
         }else {
@@ -67,11 +85,14 @@ app.use('/', homeController)
 // admin import controller
 import {loginController} from './controllers/admin/loginController'
 import {dashboardController} from './controllers/admin/dashboardController'
-import { IUserSchema } from "./models/UserModel";
+import { settingsController } from "./controllers/admin/settingsController";
+import { userFindId } from "./services/admin/userService";
+
 // admin router
 app.use('/admin', [
     loginController, 
-    dashboardController
+    dashboardController,
+    settingsController
 ])
 
 

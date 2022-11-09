@@ -7,8 +7,12 @@ export const loginController = express.Router()
 // get login
 let errorMessage = ''
 loginController.get('/', (req,res) => {
-    res.render('admin/login', {errorMessage: errorMessage})
-    errorMessage = ''
+    if ( req.session.item && req.session.item.id !== '' ) {
+        res.redirect('../admin/dashboard')
+    }else {
+        res.render('admin/login', {errorMessage: errorMessage})
+        errorMessage = ''
+    }
 })
 
 // post login
@@ -28,6 +32,11 @@ loginController.post('/login', (req, res) => {
                     email: userItem.email!,
                     password: userItem.password!
                 }
+                // cookie control
+                if (user.remember !== undefined && user.remember === 'on') {
+                    res.cookie('admin', userItem.id, { maxAge: (1000 * 60 * 60 * 24), secure: true})
+                }
+                
                 res.redirect('../admin/dashboard')
             }else {
                 errorMessage = 'Username or Password Fail'
