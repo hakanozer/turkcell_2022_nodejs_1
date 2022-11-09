@@ -1,6 +1,7 @@
 import express from 'express'
 import { IUserLogin } from '../../models/IUserLogin'
 import { userLoginControl } from '../../services/admin/userService'
+import { encrypt } from '../../utils/util'
 export const loginController = express.Router()
 
 
@@ -34,7 +35,7 @@ loginController.post('/login', (req, res) => {
                 }
                 // cookie control
                 if (user.remember !== undefined && user.remember === 'on') {
-                    res.cookie('admin', userItem.id, { maxAge: (1000 * 60 * 60 * 24), secure: true})
+                    res.cookie('admin', encrypt(userItem.id), { maxAge: (1000 * 60 * 60 * 24), secure: true})
                 }
                 
                 res.redirect('../admin/dashboard')
@@ -49,6 +50,16 @@ loginController.post('/login', (req, res) => {
         errorMessage = error.message
         res.redirect('../admin')
     }
-
     
+})
+
+
+// logout
+loginController.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if(!err) {
+            res.cookie('admin', '', {maxAge: 0})
+            res.redirect('../admin')
+        }
+    })
 })

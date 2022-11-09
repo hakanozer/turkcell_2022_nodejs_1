@@ -1,9 +1,13 @@
+import * as dotenv from 'dotenv'
+dotenv.config()
+
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import { IUserSchema, UserModel } from "./models/UserModel";
+import { decrypt } from "./utils/util";
 
 const app = express()
 const port = 8080
@@ -18,7 +22,8 @@ declare module 'express-session' {
     }
 }
 // session config
-const sessionKey = 'key123'
+const sessionKey = process.env.SESSION_KEY!
+
 const sesionConfig = session({
     secret: sessionKey,
     resave: false,
@@ -55,8 +60,9 @@ app.use( async ( req, res, next ) => {
         next()
     }else {
         // cookie control
-        if ( req.cookies.admin ) {
-            const id = req.cookies.admin as string
+        if ( req.cookies.admin && req.cookies.admin !== '' ) {
+            let id = req.cookies.admin as string
+            id = decrypt(id)
              await userFindId(id).then(user => {
                 if (user) {
                     req.session.item = {
@@ -87,6 +93,7 @@ import {loginController} from './controllers/admin/loginController'
 import {dashboardController} from './controllers/admin/dashboardController'
 import { settingsController } from "./controllers/admin/settingsController";
 import { userFindId } from "./services/admin/userService";
+
 
 // admin router
 app.use('/admin', [
