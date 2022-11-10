@@ -93,13 +93,15 @@ import {loginController} from './controllers/admin/loginController'
 import {dashboardController} from './controllers/admin/dashboardController'
 import { settingsController } from "./controllers/admin/settingsController";
 import { userFindId } from "./services/admin/userService";
+import { detailController } from './controllers/admin/detailController';
 
 
 // admin router
 app.use('/admin', [
     loginController, 
     dashboardController,
-    settingsController
+    settingsController,
+    detailController
 ])
 
 

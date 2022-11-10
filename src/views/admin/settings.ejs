@@ -10,7 +10,23 @@
 <body>
     <div class="container">
         <%- include('../inc/navBar')  %> 
-        <h1>Settings Page</h1>
+        <h2>Product List</h2>
+
+        <div class="row">
+            <% if (arr) { %>
+                <% arr.forEach((item, index) => { %>
+                    <div class="card col-sm-4">
+                        <img src=<%= item.images[0].normal %>  class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title"><%= item.productName %> </h5>
+                        <p class="card-text"><%= item.brief %></p>
+                        <a href="../admin/productDetail?index=<%=index %> " class="btn btn-primary">Goto Detail</a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+
     </div>
 </body>
 </html>

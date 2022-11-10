@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 
-const key = process.env.SECRET_KEY!
+const key = process.env.SECRET_KEY !== undefined ? process.env.SECRET_KEY : ''
 
 // Encrypt
 export const encrypt = (plainText: string) : string => {
