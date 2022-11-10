@@ -39,16 +39,23 @@
                       </tr>
                     </thead>
                     <tbody>
+                    
+                        <% if (items) { %>
+                         <% for( let i = 0; i < items.length; i++ ) {
+                            const item = items[i]  
+                         %>
+                            <tr>
+                                <th><%=(i+1) %></th>
+                                <td><%=item.name %></td>
+                                <td><%=item.phone %></td>
+                                <td> <div style="border-radius: 5px; height: 15px; padding: 15px; background-color: <%=item.color %>; "></div> </td>
+                                <td>
+                                    <a href="../admin/customerDelete?id=<%=item.id%>" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                              </tr>
+                         <% } %>
+                        <% } %>
 
-                      <tr>
-                        <th>1</th>
-                        <td>Ali Bilmem</td>
-                        <td>543453453</td>
-                        <td> <div style="border-radius: 5px; height: 15px; padding: 15px; background-color: rgb(182, 10, 10);"></div> </td>
-                        <td>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                      </tr>
                       
                     </tbody>
                   </table>
