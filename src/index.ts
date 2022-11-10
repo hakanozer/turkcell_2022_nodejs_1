@@ -56,7 +56,7 @@ app.use(bodyParser.json())
 app.use( async ( req, res, next ) => {
     const url = req.url    
     // admin Control
-    if ( url === '/admin' || url === '/admin/login' ) {
+    if ( url.includes('/api') || url === '/admin' || url === '/admin/login' ) {
         next()
     }else {
         // cookie control
@@ -102,6 +102,12 @@ app.use('/admin', [
     dashboardController,
     settingsController,
     detailController
+])
+
+// api controller
+import { customerRestController } from './controllers/api/customerRestController';
+app.use('/api', [ 
+    customerRestController
 ])
 
 
