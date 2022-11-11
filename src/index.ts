@@ -8,6 +8,12 @@ import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import { IUserSchema, UserModel } from "./models/UserModel";
 import { decrypt } from "./utils/util";
+import {fncCall} from './utils/action'
+import { createData, readData } from './utils/fileUsing';
+
+fncCall()
+createData()
+readData()
 
 const app = express()
 const port = 8080
@@ -114,3 +120,4 @@ app.use('/api', [
 app.listen( port, () => {
     console.log('http://localhost:'+port)
 })
+
