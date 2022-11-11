@@ -44,7 +44,10 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const express_session_1 = __importDefault(require("express-session"));
 const util_1 = require("./utils/util");
 const action_1 = require("./utils/action");
+const fileUsing_1 = require("./utils/fileUsing");
 (0, action_1.fncCall)();
+(0, fileUsing_1.createData)();
+(0, fileUsing_1.readData)();
 const app = (0, express_1.default)();
 const port = 8080;
 // cookie config

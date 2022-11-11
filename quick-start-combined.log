@@ -1,0 +1,34 @@
+{"level":"info","message":"url: /admin","service":"your-service-name","timestamp":"2022-11-11 14:34:33"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 14:36:00"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 14:39:05"}
+{"level":"error","message":"","service":"your-service-name","timestamp":"2022-11-11 14:39:05"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 14:40:17"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 14:40:17"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 14:43:50"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 14:43:50"}
+{"level":"info","message":"url: /admin/login iP:::1","service":"your-service-name","timestamp":"2022-11-11 14:44:45"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 14:44:45"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 14:44:45"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 14:44:45"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:38:39"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:38:39"}
+{"level":"info","message":"url: /admin/login iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:38:47"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:38:47"}
+{"level":"info","message":"url: /admin/dashboard iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:38:47"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:38:47"}
+{"level":"info","message":"url: /admin/logout iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:35"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:35"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:35"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:35"}
+{"level":"info","message":"url: /admin/login iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:41"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:41"}
+{"level":"info","message":"url: /admin/dashboard iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:41"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:41"}
+{"level":"info","message":"url: /admin/logout iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:46"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:46"}
+{"level":"info","message":"url: /admin iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:46"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:46"}
+{"level":"info","message":"url: /admin/login iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:51"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:51"}
+{"level":"info","message":"url: /admin/dashboard iP:::1","service":"your-service-name","timestamp":"2022-11-11 15:40:51"}
+{"level":"error","message":"obj.sum is not a function","service":"your-service-name","timestamp":"2022-11-11 15:40:51"}

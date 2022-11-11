@@ -60,7 +60,20 @@ app.use(bodyParser.json())
 
 // global filter
 app.use( async ( req, res, next ) => {
-    const url = req.url    
+    const url = req.url
+    const ip= req.ip
+    // logger
+    logger.info('url: ' + url + ' iP:' + ip)
+    try {
+        const obj:any = {}
+        obj.sum(10,50) 
+    } catch (error:any) {
+        logger.log({
+            level: 'error',
+            message: error.message,
+        }) 
+    }
+
     // admin Control
     if ( url.includes('/api') || url === '/admin' || url === '/admin/login' ) {
         next()
@@ -112,6 +125,7 @@ app.use('/admin', [
 
 // api controller
 import { customerRestController } from './controllers/api/customerRestController';
+import { logger } from './utils/useWinston';
 app.use('/api', [ 
     customerRestController
 ])

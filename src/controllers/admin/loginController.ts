@@ -1,6 +1,7 @@
 import express from 'express'
 import { IUserLogin } from '../../models/IUserLogin'
 import { userLoginControl } from '../../services/admin/userService'
+import { eventEmitter, eventEnum } from '../../utils/events'
 import { encrypt } from '../../utils/util'
 export const loginController = express.Router()
 
@@ -37,7 +38,7 @@ loginController.post('/login', (req, res) => {
                 if (user.remember !== undefined && user.remember === 'on') {
                     res.cookie('admin', encrypt(userItem.id), { maxAge: (1000 * 60 * 60 * 24), secure: true})
                 }
-                
+                eventEmitter.emit(eventEnum.fncOne, userItem.name!)
                 res.redirect('../admin/dashboard')
             }else {
                 errorMessage = 'Username or Password Fail'
